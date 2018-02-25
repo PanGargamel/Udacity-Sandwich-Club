@@ -2,4 +2,11 @@
 <resources>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="detail_bottom_space">10dp</dimen>
+    <dimen name="detail_image_height">200dp</dimen>
+    <dimen name="detail_title_margin">10dp</dimen>
+    <dimen name="detail_title_textsize">26sp</dimen>
+    <dimen name="detail_description_side_margin">10dp</dimen>
+    <dimen name="detail_subtitle_padding">10dp</dimen>
+    <dimen name="detail_content_padding">15dp</dimen>
 </resources>

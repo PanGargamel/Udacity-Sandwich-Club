@@ -15,32 +15,30 @@ import com.squareup.picasso.Picasso;
 import com.udacity.sandwichclub.model.Sandwich;
 import com.udacity.sandwichclub.utils.JsonUtils;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class DetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_POSITION = "extra_position";
     private static final int DEFAULT_POSITION = -1;
 
-    TextView titleTextView;
-    TextView originLabelTextView;
-    TextView originTextView;
-    TextView descriptionTextView;
-    TextView ingredientsTextView;
-    TextView alsoKnownLabelTextView;
-    TextView alsoKnownTextView;
+    @BindView(R.id.title_tv) TextView titleTextView;
+    @BindView(R.id.origin_label_tv) TextView originLabelTextView;
+    @BindView(R.id.origin_tv) TextView originTextView;
+    @BindView(R.id.description_tv) TextView descriptionTextView;
+    @BindView(R.id.ingredients_tv) TextView ingredientsTextView;
+    @BindView(R.id.also_known_label_tv) TextView alsoKnownLabelTextView;
+    @BindView(R.id.also_known_tv) TextView alsoKnownTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
+        ButterKnife.bind(this);
+
         ImageView ingredientsIv = findViewById(R.id.image_iv);
-        titleTextView = findViewById(R.id.title_tv);
-        originLabelTextView = findViewById(R.id.origin_label_tv);
-        originTextView = findViewById(R.id.origin_tv);
-        descriptionTextView = findViewById(R.id.description_tv);
-        ingredientsTextView = findViewById(R.id.ingredients_tv);
-        alsoKnownLabelTextView = findViewById(R.id.also_known_label_tv);
-        alsoKnownTextView = findViewById(R.id.also_known_tv);
 
         Intent intent = getIntent();
         if (intent == null) {
@@ -66,6 +64,7 @@ public class DetailActivity extends AppCompatActivity {
         populateUI(sandwich);
         Picasso.with(this)
                 .load(sandwich.getImage())
+                .error(R.drawable.image_error_placeholder)
                 .into(ingredientsIv);
 
         setTitle(sandwich.getMainName());
